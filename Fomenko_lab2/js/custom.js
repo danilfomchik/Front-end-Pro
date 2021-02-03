@@ -57,7 +57,6 @@ var ft = Number(foot);
 console.log('Foots --> ', ft);
 console.log('Kilometers --> ', km);
 
-
 if(km > ft){
     alert(foots + ' футов, это ' + ft + ' киллометров! ' + 'Соответственно ' + km + ' киллометров больше, чем ' + foots + ' футов !');
 } else if(km < ft){
