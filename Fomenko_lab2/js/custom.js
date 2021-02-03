@@ -20,7 +20,7 @@ if(!age && !smoking){
 
 
 
-
+/*
 //2.2
 var value1 = prompt('Введите первое значение');
 var value2 = prompt('Введите второе значение');
@@ -40,26 +40,30 @@ if(num1 > num2){
 } else{
     alert('Упс! Что-то пошло не так...');
 }
+*/
 
 
 
 
-/*
 //2.3
 var kilometers = prompt('Введите растояние в киллометрах');
-console.log('Kilometers --> ', kilometers);
+var foots = prompt('Введите растояние в футах');
 
-var value2 = prompt('Введите растояние в футах');
-ft = value2 * 0.305;
-console.log('FT --> ', ft);
+foot = foots * 0.305;
 
-if(kilometers > ft){
-    alert(value2 + ' футов, это ' + ft + ' киллометров! ' + 'Соответственно ' + kilometers + ' киллометров больше, чем ' + value2 + ' футов !');
-} else if(kilometers < ft){
-    alert(value2 + ' футов, это ' + ft + ' киллометров! ' + 'Соответственно ' + kilometers + ' киллометров меньше, чем ' + value2 + ' футов !');
-} else if(kilometers = ft){
+var km = Number(kilometers);
+var ft = Number(foot);
+
+console.log('Foots --> ', ft);
+console.log('Kilometers --> ', km);
+
+
+if(km > ft){
+    alert(foots + ' футов, это ' + ft + ' киллометров! ' + 'Соответственно ' + km + ' киллометров больше, чем ' + foots + ' футов !');
+} else if(km < ft){
+    alert(foots + ' футов, это ' + ft + ' киллометров! ' + 'Соответственно ' + km + ' киллометров меньше, чем ' + foots + ' футов !');
+} else if(km = ft){
     alert('Расстояние равное!');
 } else{
     alert('Упс! Что-то пошло не так...');
 }
-*/
