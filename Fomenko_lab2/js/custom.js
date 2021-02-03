@@ -1,18 +1,18 @@
 
 //2.1
-var age = prompt('Сколько лет?');
+var age = confirm('Вам есть 18?');
 console.log('Age --> ', age);
 
-var smoking = prompt('Куришь?');
+var smoking = confirm('Куришь?');
 console.log('Smoking --> ', smoking);
 
-if(age < 18 && smoking === 'Нет'){
+if(!age && !smoking){
     alert('Так держать !');
-} else if(age < 18 && smoking === 'Да'){
+} else if(!age && smoking){
     alert('Маме расскажу !');
-} else if(age >= 18 && smoking === 'Нет'){
+} else if(age && !smoking){
     alert('Молодец, и не надо !');
-} else if(age >= 18 && smoking === 'Да'){
+} else if(age && smoking){
     alert('Ну и зря !');
 }
 
