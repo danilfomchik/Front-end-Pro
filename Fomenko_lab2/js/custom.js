@@ -1,4 +1,4 @@
-
+/*
 //2.1
 var age = confirm('Вам есть 18?');
 console.log('Age --> ', age);
@@ -15,29 +15,32 @@ if(!age && !smoking){
 } else if(age && smoking){
     alert('Ну и зря !');
 }
+*/
 
 
 
 
 
-/*
 //2.2
 var value1 = prompt('Введите первое значение');
-console.log('Value1 --> ', value1);
-
 var value2 = prompt('Введите второе значение');
-console.log('Value2 --> ', value2);
 
-if(value1 > value2){
-    alert(value1 + ' > ' + value2);
-} else if(value1 < value2){
-    alert(value2 + ' > ' + value1);
-} else if(value1 = value2){
+var num1 = Number(value1);
+var num2 = Number(value2);
+
+console.log('Value1 --> ', num1);
+console.log('Value2 --> ', num2);
+
+if(num1 > num2){
+    alert(num1 + ' > ' + num2);
+} else if(num1 < num2){
+    alert(num2 + ' > ' + num1);
+} else if(num1 = num2){
     alert('Числа равны!');
 } else{
     alert('Упс! Что-то пошло не так...');
 }
-*/
+
 
 
 
