@@ -1,21 +1,21 @@
-/*
+
 //2.1
-var age = confirm('Вам есть 18?');
+var age = +prompt('Сколько вам лет?');
 console.log('Age --> ', age);
 
 var smoking = confirm('Куришь?');
 console.log('Smoking --> ', smoking);
 
-if(!age && !smoking){
+if(age < 18 && !smoking){
     alert('Так держать !');
-} else if(!age && smoking){
+} else if(age < 18 && smoking){
     alert('Маме расскажу !');
-} else if(age && !smoking){
+} else if(age >= 18 && !smoking){
     alert('Молодец, и не надо !');
-} else if(age && smoking){
+} else if(age >= 18 && smoking){
     alert('Ну и зря !');
 }
-*/
+
 
 
 
@@ -44,7 +44,7 @@ if(num1 > num2){
 
 
 
-
+/*
 //2.3
 var kilometers = prompt('Введите растояние в киллометрах');
 var foots = prompt('Введите растояние в футах');
@@ -66,3 +66,4 @@ if(km > ft){
 } else{
     alert('Упс! Что-то пошло не так...');
 }
+*/
