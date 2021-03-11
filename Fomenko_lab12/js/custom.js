@@ -1,6 +1,11 @@
 var commentDiv = document.querySelector("div#comment");
 var createClass = commentDiv.setAttribute('class', 'commentStyle');
 
+var commentImage = document.createElement('img');
+commentImage.setAttribute('name', 'img');
+commentImage.setAttribute('src', './pictures/stickerwall.png');
+commentImage.setAttribute('alt', '');
+commentDiv.appendChild(commentImage);
 
 var title = document.createElement("h1");
 var titleText = document.createTextNode("Создание сайта ");
@@ -22,9 +27,4 @@ var secondParagraphText = document.createTextNode("Рад, что друзья �
 secondParagraph.appendChild(secondParagraphText);
 commentDiv.appendChild(secondParagraph);
 
-
-// var img = document.getElementsByName(img);
-// img.style.img = "border-radius = 50%; width = 100px"
-// // Устанавливает несколько стилей в одном выражении
-// elt.style.cssText = "color: blue; border: 1px solid black";
 
