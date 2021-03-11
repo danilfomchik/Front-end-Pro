@@ -4,7 +4,7 @@ var createClass = commentDiv.setAttribute('class', 'commentStyle');
 var commentImage = document.createElement('img');
 commentImage.setAttribute('name', 'img');
 commentImage.setAttribute('src', './pictures/stickerwall.png');
-commentImage.setAttribute('alt', '');
+commentImage.setAttribute('alt', ' ');
 commentDiv.appendChild(commentImage);
 
 var title = document.createElement("h1");
