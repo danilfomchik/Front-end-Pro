@@ -230,15 +230,8 @@ var infoArray = [
       }
     }
 ];
-//сортируем массив по email
-infoArray.sort(function(prev, next) {
-    if ( prev.email < next.email ) return -1;
-    if ( prev.email > next.email ) return 1;
-});
-
-/* супер-универсальная функция сортировки
-var sort_by = function(field, reverse, primer){
-
+//супер-универсальная функция сортировки
+var sort_by = function(field, reverse, primer) {
   if(primer === true){
     function key(x) {
       return primer(x[field])
@@ -246,9 +239,9 @@ var sort_by = function(field, reverse, primer){
   } else{
     function key(x) {
       return x[field]
-    };
+    }
   };
-
+  
   if(reverse === false){
     reverse = 1;
   } else{
@@ -261,7 +254,6 @@ var sort_by = function(field, reverse, primer){
 };
 
 infoArray.sort(sort_by('email', false, function(a){return a}));
-*/
 
 
 //выводим информацию на экран
