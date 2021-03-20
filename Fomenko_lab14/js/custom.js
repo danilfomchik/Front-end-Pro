@@ -11,8 +11,11 @@ function addImg(commentDiv){
     deleteImg.setAttribute('class', 'deleteImg');
     commentDiv.appendChild(deleteImg);
 
+    // deleteImg.onclick = function(){
+    //     this.parentNode.parentNode.removeChild(this.parentNode);
+    // }
     deleteImg.onclick = function(){
-        this.parentNode.parentNode.removeChild(this.parentNode);
+        commentDiv.setAttribute('class', 'deletedDiv')
     }
 }
 

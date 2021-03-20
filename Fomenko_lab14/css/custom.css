@@ -23,3 +23,6 @@ p {
     top: 5px;
     cursor: pointer;
 }
+.deletedDiv{
+    display: none;
+}
