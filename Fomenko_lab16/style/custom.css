@@ -1,0 +1,21 @@
+*{
+    margin: 0;
+}
+#blueRect{ 
+    width:150px;
+    height:150px; 
+    background-color: green; 
+    position: absolute;
+    } 
+.myTextStyle1{
+    border: 2px solid red;
+    resize: none;
+    height: 50px;
+    width: 200px;
+}
+.myTextStyle2{
+    border: 2px solid green;
+    resize: none;
+    height: 50px;
+    width: 200px;
+}
