@@ -12,13 +12,13 @@ console.log('offsetHeight-->', offsetHeight);
 function moveElement(event){
     switch(event.key){
         case 'ArrowRight': 
-            if(moveLeft < offsetWidth - 160){
+            if(moveLeft < offsetWidth - (blueDiv.clientWidth + 10)){
                 blueDiv.style.left = moveLeft + 10 + 'px';
                 moveLeft += 10;
             }
             break;
         case 'ArrowDown': 
-            if(moveUp < offsetHeight - 160){
+            if(moveUp < offsetHeight - (blueDiv.clientHeight + 10)){
                 blueDiv.style.top = moveUp + 10 + 'px';
                 moveUp += 10;
             }
@@ -36,6 +36,7 @@ function moveElement(event){
             }
             break;
     }
+    console.log(event);
 };
 
 blueBody.addEventListener('keydown', moveElement);
