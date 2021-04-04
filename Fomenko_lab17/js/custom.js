@@ -262,20 +262,34 @@ function getUserInfo(obj) {
     for(var prop in o) {
       if(typeof(o[prop]) === 'object') {
         Object.defineProperties(o[prop], {
-          'name': {enumerable: true, configurable: true, writable: false},
-          'phone': {enumerable: true, configurable: true, writable: false},
           'company': {enumerable: false},
           'website': {enumerable: false},
           'geo': {enumerable: false},
-        });
-        // Object.defineProperties(o[prop], 'address',{
-        //   'geo': {enumerable: false},
-        // });
+        })
+      
         getValue(o[prop]);
       } else {
-        document.write(`${o[prop]} <br>`)
+        document.write(`${prop}: ${o[prop]} <br>`)
       }
-      console.log('o[prop]-->', o['address']);
     }
   }
 };
+
+
+// function getUserInfo(obj){
+//   for(var prop of obj){
+//     Object.defineProperties(prop, {
+//       'name': {enumerable: true, configurable: true, writable: false},
+//       'phone': {enumerable: true, configurable: true, writable: false},
+//       'company': {enumerable: false},
+//       'website': {enumerable: false},
+//       'geo': {enumerable: false},
+//     });
+//     Object.defineProperties(prop.address, {
+//       'geo': {enumerable: false},
+//     });
+//   }
+//   document.write(prop);
+// }
+
+// getUserInfo(users);
