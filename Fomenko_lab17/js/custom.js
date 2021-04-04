@@ -231,28 +231,6 @@ var users = [
     }
 ];
 
-// var userInfo = document.querySelector('.user-info');
-
-// function getUserInfo(obj){
-//   for(var obj in users){
-//     for(var key in users[obj]){
-//       Object.defineProperties(users[obj], {
-//         'name': {enumerable: true, configurable: true, writable: false},
-//         'phone': {enumerable: true, configurable: true, writable: false},
-//         'company': {enumerable: false},
-//         'website': {enumerable: false},
-//         'geo': {enumerable: false},
-//       });
-//       document.write(`${users[obj][key]} <br>`);
-//       console.log(users[obj][key]);
-//     }
-//     document.write(`<hr>`);
-//   }
-// }
-
-// getUserInfo(users);
-
-
 getUserInfo(users);
 
 function getUserInfo(obj) {
@@ -262,6 +240,8 @@ function getUserInfo(obj) {
     for(var prop in o) {
       if(typeof(o[prop]) === 'object') {
         Object.defineProperties(o[prop], {
+          'name': {writable: false},
+          'phone': {writable: false},
           'company': {enumerable: false},
           'website': {enumerable: false},
           'geo': {enumerable: false},
@@ -274,22 +254,3 @@ function getUserInfo(obj) {
     }
   }
 };
-
-
-// function getUserInfo(obj){
-//   for(var prop of obj){
-//     Object.defineProperties(prop, {
-//       'name': {enumerable: true, configurable: true, writable: false},
-//       'phone': {enumerable: true, configurable: true, writable: false},
-//       'company': {enumerable: false},
-//       'website': {enumerable: false},
-//       'geo': {enumerable: false},
-//     });
-//     Object.defineProperties(prop.address, {
-//       'geo': {enumerable: false},
-//     });
-//   }
-//   document.write(prop);
-// }
-
-// getUserInfo(users);
