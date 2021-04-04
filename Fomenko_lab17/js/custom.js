@@ -247,7 +247,7 @@ function getUserInfo(obj) {
           'geo': {enumerable: false},
         })
         getValue(o[prop]);
-      } else {
+      } else{
         document.write(`${prop}: ${o[prop]} <br>`)
       }
     }
