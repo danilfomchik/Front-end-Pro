@@ -1,0 +1,20 @@
+.modal {
+    width: 60vw;
+    height: 300px;
+    position: absolute;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    box-shadow: 0px 0px 5px 3px #ccc;
+    padding: 15px;
+    left: calc(50vw - 30vw);
+    top: calc(50vh - 150px);
+}
+.closePopUp{
+    display: none;
+}
+.showPopUp{
+    display: block;
+}
+button{
+    cursor: pointer;
+}

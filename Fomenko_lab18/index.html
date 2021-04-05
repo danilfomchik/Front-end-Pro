@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+ <!---- Если Купить  то Sale: true  
+   Если Купить  то ShowSalePopup: {
+    isShow: false,
+    time: 0
+  }  
+   Если Закрыть  то Sale: false
+   Если Закрыть  то ShowSalePopup: {
+    isShow: true,
+    time: 15000
+  } -->
+  <div class="modal">
+    <h1>SALE!!!!</h1>
+    <h3>только до <span class="endSalesDay">15.04.2021</span>!!!!</h3>
+    <h3>Осталось времени</h3>
+    <span id="timer">00:00:00</span>
+    <br>
+    <button class="buyPopUp">Купить</button>
+    <button class="cancelPopUp">Закрыть</button>
+  </div>
+
+  <script src="./js/custom.js"></script>
+</body>
+</html>
