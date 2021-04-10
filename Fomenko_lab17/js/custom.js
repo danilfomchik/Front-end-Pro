@@ -231,25 +231,44 @@ var users = [
     }
 ];
 
-getUserInfo(users);
+// getUserInfo(users);
 
-function getUserInfo(obj) {
-  getValue(obj);
+// function getUserInfo(obj) {
+//   getValue(obj);
     
-  function getValue(o) {
-    for(var prop in o) {
-      if(typeof(o[prop]) === 'object') {
-        Object.defineProperties(o[prop], {
-          'name': {writable: false},
-          'phone': {writable: false},
-          'company': {enumerable: false},
-          'website': {enumerable: false},
-          'geo': {enumerable: false},
-        })
-        getValue(o[prop]);
-      } else{
-        document.write(`${prop}: ${o[prop]} <br>`)
-      }
+//   function getValue(o) {
+//     for(var prop in o) {
+//       if(typeof(o[prop]) === 'object') {
+//         Object.defineProperties(o[prop], {
+//           'name': {writable: false},
+//           'phone': {writable: false},
+//           'company': {enumerable: false},
+//           'website': {enumerable: false},
+//           'geo': {enumerable: false},
+//         })
+//         getValue(o[prop]);
+//       } else{
+//         document.write(`${prop}: ${o[prop]} <br>`)
+//       }
+//     }
+//   }
+// };
+
+function getUserInfo(obj){
+  for(var prop in obj) {
+    if(typeof(obj[prop]) === 'object') {
+      Object.defineProperties(obj[prop], {
+        'name': {writable: false},
+        'phone': {writable: false},
+        'company': {enumerable: false},
+        'website': {enumerable: false},
+        'geo': {enumerable: false},
+      })
+      getUserInfo(obj[prop]);
+    } else{
+      document.write(`${prop}: ${obj[prop]} <br>`)
     }
   }
-};
+}
+
+getUserInfo(users);
