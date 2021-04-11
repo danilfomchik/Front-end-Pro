@@ -6,7 +6,7 @@ var timerSpan = document.getElementById('timer');
 closePopUp.addEventListener('click', closeSalePopUp);
 buyPopUp.addEventListener('click', acseptSalePopUp)
 
-var timerFuction = setInterval(popUpTimer);
+var timer = setInterval(popUpTimer);
 var countDownDate = new Date('2021-04-15').getTime();
 
 function popUpTimer(){
@@ -20,7 +20,7 @@ function popUpTimer(){
 
     timerSpan.innerHTML = `${days}д ${hours}ч ${minutes} мин ${seconds} сек`;
     if(timeLeft = 0){
-        clearInterval(timerFuction);
+        clearInterval(timer);
         timerSpan.innerHTML = 'Время истекло, акция окончена!'
     }
 }
