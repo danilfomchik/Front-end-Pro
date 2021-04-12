@@ -19,15 +19,16 @@ function sumValues(){
     }
 }
 
-var sumBox = document.sumOfNumber.intSum;
+var sumBox = document.sumOfDigits.number;
 var pSum = document.querySelector('.sum')
 
 function onblure(e) {
-    var arr = sumBox.value.split('');
-    arr = arr.map(Number);
+    var sumBoxArray = sumBox.value.split('');
+    sumBoxArray = sumBoxArray.map(Number);
     var sum = 0;
-    for(var i = 0; i < arr.length; i++){
-        sum += arr[i];
+    
+    for(var i = 0; i < sumBoxArray.length; i++){
+        sum += sumBoxArray[i];
     }
     pSum.innerHTML = `Сумма его цифер: ${sum}`;
 
