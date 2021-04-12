@@ -7,13 +7,17 @@ function getRandomValue(value) {
     return Math.floor(Math.random() * value);
 }
 
-var moveNewWindow = setInterval(moveNewWindow, 1000)
-
 function moveNewWindow (){
     var win = window.open('', 'FrontEnd', params);
     win.document.write('<title>Frontend</title><img src="./pictures/cat.jpg" alt="cat" width="450" height="450">');
-    win.moveTo(getRandomValue(offsetWidth), getRandomValue(offsetHeight));
-    win.focus();
+
+    var moveNewWindow = setInterval(windowStep, 1000)
+    function windowStep(){
+        var x = getRandomValue(offsetWidth);
+        var y = getRandomValue(offsetHeight);
+        win.moveTo(x, y);
+        win.focus();
+    }
     
     function closeNewWindow(){
         win.close();
@@ -21,3 +25,5 @@ function moveNewWindow (){
     }
     setTimeout(closeNewWindow, 15000);
 }
+
+moveNewWindow()
