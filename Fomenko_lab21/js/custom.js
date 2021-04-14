@@ -13,6 +13,10 @@ function sumValues(){
 
     var result = parseInt(value1 + value2 + value3)
     resultInput.value = result;
+
+    if(resultInput.value === 'NaN'){
+        alert('Вы должны ввести все числа');
+    }
 }
 
 var sumBox = document.sumOfDigits.number;
@@ -30,6 +34,5 @@ function onblure(e) {
 
     e.preventDefault();
     sumBox.value = '';
-    sumBox.focus()
 }
 sumBox.addEventListener('blur', onblure);
