@@ -9,11 +9,11 @@
 </head>
 <body>
     <form name="search">
-        <input type="text" placeholder="Введите число" name="value1">
-        <input type="text" placeholder="Введите число" name="value2">
-        <input type="text" placeholder="Введите число" name="value3">
+        <input type="text" placeholder="Введите число" name="value1" pattern="^[ 0-9]+$">
+        <input type="text" placeholder="Введите число" name="value2" pattern="^[0-9]+$">
+        <input type="text" placeholder="Введите число" name="value3" pattern="^[0-9]+$">
         
-        <input type="button" name="print" value="Summ">
+        <input type="submit" name="print" value="Summ">
         <input type="text" placeholder="Result" name="result">
     </form>
     <hr>
