@@ -16,6 +16,7 @@ function sumValues(){
 
     if(resultInput.value === 'NaN'){
         alert('Вы должны ввести все числа');
+        resultInput.value = ''
     }
 }
 
