@@ -36,6 +36,7 @@ function onblure(e) {
 
     if(isNaN(sum)){
         alert('Вы должны ввести число');
+        sumBox.focus()
     }
     e.preventDefault();
     sumBox.value = '';
