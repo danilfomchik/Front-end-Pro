@@ -22,17 +22,21 @@ function sumValues(){
 
 var sumBox = document.sumOfDigits.number;
 var pSum = document.querySelector('.sum')
+var sumSpan = document.querySelector('.sumSpan')
 
 function onblure(e) {
     var sumBoxArray = sumBox.value.split('');
     sumBoxArray = sumBoxArray.map(Number);
+
     var sum = 0;
-    
     for(var i = 0; i < sumBoxArray.length; i++){
         sum += sumBoxArray[i];
     }
-    pSum.innerHTML = `Сумма его цифер: ${sum}`;
+    sumSpan.innerHTML = ` ${sum}`;
 
+    if(isNaN(sum)){
+        alert('Вы должны ввести число');
+    }
     e.preventDefault();
     sumBox.value = '';
 }

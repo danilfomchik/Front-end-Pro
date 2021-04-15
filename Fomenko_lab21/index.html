@@ -5,13 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel='stylesheet' href="./css/style.css"> 
 </head>
 <body>
     <form name="search">
-        <input type="text" placeholder="Введите число" name="value1" pattern="^[ 0-9]+$">
-        <input type="text" placeholder="Введите число" name="value2" pattern="^[0-9]+$">
-        <input type="text" placeholder="Введите число" name="value3" pattern="^[0-9]+$">
+        <input type="text" placeholder="Введите число" name="value1">
+        <input type="text" placeholder="Введите число" name="value2">
+        <input type="text" placeholder="Введите число" name="value3">
         
         <input type="button" name="print" value="Summ">
         <input type="text" placeholder="Result" name="result">
@@ -20,7 +19,7 @@
     <form name="sumOfDigits">
         <p>Введите какое-нибудь число:</p>
         <input type="text" placeholder="Введите число" name="number">
-        <p class="sum">Сумма его цифер:</p>
+        <p class="sum">Сумма его цифер:<span class="sumSpan"></span></p>
     </form>
 
     <script src="./js/custom.js"></script>
