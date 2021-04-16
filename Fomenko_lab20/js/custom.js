@@ -173,7 +173,7 @@ var sort_by = function(field, reverse, primer) {
 
 ///применяем сортировку на клик по списку
 function sortToDoList (event){
-  history.pushState({}, '', `#sort=${event.target.value}`)
+  history.pushState({}, '', `&sort=${event.target.value}`)
 
   if(toDoSort.selectedIndex > 0){
     if(toDoSort.options[toDoSort.selectedIndex].value === 'abc'){
@@ -211,10 +211,9 @@ isCompleted.addEventListener('click', (event) => {
 });
 //////////
 searchInput.addEventListener('input', (event) => {
-  history.pushState({}, '', `#search=${event.target.value}`)
+  history.pushState({}, '', `&search=${event.target.value}`)
 
   let searchText = event.target.value;
-  console.log('searchText-->', event);
   filtersToParams(data, searchText, 'search');
 });
 //////////
@@ -227,7 +226,6 @@ searchInput.addEventListener('input', (event) => {
 function filtersToParams(data, searchParam, field) {
 
   let isCompletedArr = data.filter((item) => {
-    // history.pushState({}, '', `?isCompleted=${isCompleted.checked}&search=${searchParam}&sort=${searchParam}`)
 
     switch(field) {
       case 'checkbox':
@@ -244,8 +242,6 @@ function filtersToParams(data, searchParam, field) {
         } else{
           return false
         }
-      case 'sort':
-        return item
       // case 'sort':
       //   if(searchParam === 'abc'){
       //     return data.sort(sort_by('title', false, function(a){return a}));
