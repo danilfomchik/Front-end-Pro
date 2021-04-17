@@ -125,14 +125,34 @@ const todoList = document.querySelector('.todo-list');
 const isCompleted = document.querySelector('.isComplited');
 const searchInput = document.querySelector('.searchInput');
 const toDoSort = document.getElementById('toDoSort');
+let checkBox = '';
+let sortToDo = '';
+let searchItem = '';
 
 
-//рендерим страницу
+///применяем сортировку на клик по списку
+toDoSort.addEventListener('change', sortToDoList);
+
+function sortToDoList (){
+  var sortOptions = toDoSort.options[toDoSort.selectedIndex].value;
+  changeUrl(sortOptions, 'sort')
+
+  if(toDoSort.selectedIndex > 0){
+    if(sortOptions === 'abc'){
+      data.sort(sort_by('title', false, function(a){return a}));
+    } else if (sortOptions === 'bca'){
+      data.sort(sort_by('title', true, function(a){return a}));
+    }
+  }
+
+  filtersToParams(data, sortOptions, 'sort');
+};
+
+
 renderList(data);
-   
+
 function renderList (list) {
   list.forEach((item, indx) => {
-    // console.log('item-->', item);
     let todoItem = `
     <div class='todo-item todo-item-${item.id}'>
       <div class="completed completed-${item.completed}">
@@ -142,7 +162,6 @@ function renderList (list) {
     todoList.innerHTML += todoItem
   }) 
 }
-///////
 
 //функция сортировки
 var sort_by = function(field, reverse, primer) {
@@ -155,78 +174,57 @@ var sort_by = function(field, reverse, primer) {
       return x[field]
     }
   };
-  
   if(reverse === false){
     reverse = 1;
   } else{
     reverse = -1;
   };
-
   return function (a, b) {
     return a = key(a), b = key(b), reverse * ((a > b) - (b > a));
   } 
 };
-////////
 
-
-
-
-///применяем сортировку на клик по списку
-function sortToDoList (event){
-  history.pushState({}, '', `&sort=${event.target.value}`)
-
-  if(toDoSort.selectedIndex > 0){
-    if(toDoSort.options[toDoSort.selectedIndex].value === 'abc'){
-      data.sort(sort_by('title', false, function(a){return a}));
-    } else if (toDoSort.options[toDoSort.selectedIndex].value === 'bca'){
-      data.sort(sort_by('title', true, function(a){return a}));
-    } else if (toDoSort.options[toDoSort.selectedIndex].value === 'nochosen'){
-      return todoList
-    }
+//функция изменение URL
+function changeUrl(iterationElem, elemType) {
+  if (elemType === 'check') {
+    checkBox = `?isCompleted=${iterationElem}`;
   }
-  
-  var reverseСondition = toDoSort.options[toDoSort.selectedIndex].value;
-  filtersToParams(data, reverseСondition, 'sort');
-};
+  else if (elemType === 'sort') {
+    sortToDo = `&sort=${iterationElem}`;
+  }
+  else if (elemType === 'search') {
+    searchItem = `&search=${iterationElem}`;
+  }
+  if(sortToDo === undefined) {
+    sortToDo =''
+  }
+  if (checkBox === undefined) {
+    checkBox ='';
+  }
+  if (searchItem === undefined) {
+    searchItem='';
+  }
+  history.pushState({}, '',  `${sortToDo}${searchItem}${checkBox}`)
+}
 
-toDoSort.addEventListener('change', sortToDoList);
-/////////////
 
-
-
-/////////////добавляем события
-// toDoSort.addEventListener('change', (event) => {
-//   // const isCompleted = document.querySelector('.isComplited');
-//   history.pushState({}, '', `#sort=${event.target.value}`)
-
-//   var reverseСondition = toDoSort.options[toDoSort.selectedIndex].value;
-//   filtersToParams(data, reverseСondition, 'sort');
-// });
-//////////
 isCompleted.addEventListener('click', (event) => {
-  history.pushState({}, '', `?isCompleted=${isCompleted.checked}`)
-   
   let completed = isCompleted.checked
+
+  changeUrl(completed, 'check')
   filtersToParams(data, completed, 'checkbox');
 });
-//////////
 searchInput.addEventListener('input', (event) => {
-  history.pushState({}, '', `&search=${event.target.value}`)
-
   let searchText = event.target.value;
+
+  changeUrl(searchText, 'search')
   filtersToParams(data, searchText, 'search');
 });
-//////////
 
 
-
-
-
-///фильтрация данных
 function filtersToParams(data, searchParam, field) {
 
   let isCompletedArr = data.filter((item) => {
-
     switch(field) {
       case 'checkbox':
         if(searchParam == true) {
@@ -242,16 +240,6 @@ function filtersToParams(data, searchParam, field) {
         } else{
           return false
         }
-      // case 'sort':
-      //   if(searchParam === 'abc'){
-      //     return data.sort(sort_by('title', false, function(a){return a}));
-      //   } else if (searchParam === 'bca'){
-      //     return data.sort(sort_by('title', true, function(a){return a}));
-      //   } else if (searchParam === 'nochosen'){
-      //     return item
-      //   } else {
-      //     return false
-      //   }
       default : return item 
     }
   });
