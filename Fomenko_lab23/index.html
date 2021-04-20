@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <h1>Калькулятор расчета стоимости ли­ноле­ума</h1>
+    <h3>Укажите параметры:</h3>
+        <form name="mainCalc">
+            <label>
+                <p>Длина комнаты, м <input type="text" value="1" name="roomLength" placeholder="Введите длину комнаты"></p>
+                <p>Ширина комнаты, м <input type="text" value="1" name="roomWidth" placeholder="Введите ширину комнаты"></p>
+                <hr>
+                <p>Длина рулона, м <input type="text" value="1" name="rollLength" placeholder="Введите длину рулона"></p>
+                <p>Ширина рулона, м <input type="text" value="1" name="rollWidth" placeholder="Введите ширину рулона"></p>
+                <hr>
+                <p>Тип ли­ноле­ума:</p>
+                <select id="rollType">
+                    <option value="0">Выбрать</option>
+                    <option value="1">Бытовой</option>
+                    <option value="2">Полукоммерческий</option>
+                    <option value="3">Коммерческий</option>
+                </select>
+                <p>Стоимость рулона за м<sup>2</sup><input type="range" name="rollCost" min="1" max="30"><span class="rollCostSum">0 у.е</span></p>
+            </label>
+        </form>
+        <hr>
+        <p class="roomArea">Площадь комнаты: 0</p>
+        <p class="rollValue">Количество рулонов на комнату: 0</p>
+        <p class="rollWeight">Общий вес: 0</p>
+        <h4 class="sumValue">Общая стоимость: 0</h4>
+    <script src="./js/custom.js"></script>
+</body>
+</html>
