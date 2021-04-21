@@ -15,20 +15,22 @@ var rollWeight = document.querySelector('.rollWeight');
 
 function roomAreaCalc(){
     var areaValue = +roomLength.value * +roomWidth.value;
-    if(roomLength.value == ''){
+    console.log('roomLength.value-->', roomLength.value);
+    if(isNaN(roomLength.value) || roomLength.value == ''){
         alert('Введите длину комнаты')
         roomLength.focus()
-    } else if(roomWidth.value == ''){
+    } else if(isNaN(roomWidth.value) || roomWidth.value == ''){
         alert('Введите ширину комнаты')
         roomWidth.focus()
     }
     roomArea.innerText = `Площадь комнаты: ${areaValue} м²`;
 
+
     var rolls = +rollLength.value * +rollWidth.value;
-    if(rollLength.value == ''){
+    if(isNaN(rollLength.value) || rollLength.value == ''){
         alert('Введите длину рулона')
         rollLength.focus()
-    } else if(rollWidth.value == ''){
+    } else if(isNaN(rollWidth.value) || rollWidth.value == ''){
         alert('Введите ширину рулона')
         rollWidth.focus()
     }
