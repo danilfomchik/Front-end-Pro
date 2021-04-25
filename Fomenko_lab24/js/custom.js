@@ -1,14 +1,29 @@
-fetch('https://api.github.com/users')
-    .then(function (response) {
-        return response.json();
-    })
-    .then(function (data) {
-    for(var i = 0; i < data.length; i++){
+var dataURL = 'https://api.github.com/users'
+var userinfo = document.querySelector('.userinfo');
+
+async function getUserInfo(url){
+    let fetchData = fetch(url)
+        .then((response) => {
+            return response.json()
+        })
+        .catch((err) => {
+            alert('Whoops!!! Something went wrong!')
+        })
+
+    let result = await fetchData;
+
+    for(var i = 0; i < result.length; i++){
         if(i < 10){
-            console.log(`Пользователь ${i + 1}`);
-            console.log('data--->', data[i].login)
-            console.log('data--->', data[i].avatar_url)
-            console.log('data--->', data[i].id)
+            let userData = `
+            <div>
+                <h4>Пользователь: ${i + 1}</h4>
+                <p>ID: ${result[i]['id']}</p>
+                <p>Login: ${result[i]['login']}</p>
+                <p>Avatar URL: ${result[i]['avatar_url']}</p>
+            </div>
+            `;
+            userinfo.innerHTML += userData
         }
     }
-})
+}
+getUserInfo(dataURL)
