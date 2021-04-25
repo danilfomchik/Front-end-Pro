@@ -44,11 +44,11 @@ function roomAreaCalc(){
     sumValue.innerText = `Общая стоимость: ${(rolls * +rollCost.value) * 100} у.е`;
 }
 
-roomLength.addEventListener('change', roomAreaCalc);
-roomWidth.addEventListener('change', roomAreaCalc);
+roomLength.addEventListener('input', roomAreaCalc);
+roomWidth.addEventListener('input', roomAreaCalc);
 
-rollLength.addEventListener('change', roomAreaCalc);
-rollWidth.addEventListener('change', roomAreaCalc);
+rollLength.addEventListener('input', roomAreaCalc);
+rollWidth.addEventListener('input', roomAreaCalc);
 
-rollType.addEventListener('change', roomAreaCalc)
+rollType.addEventListener('input', roomAreaCalc)
 rollCost.addEventListener('input', roomAreaCalc)
