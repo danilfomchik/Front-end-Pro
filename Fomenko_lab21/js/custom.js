@@ -10,14 +10,24 @@ function sumValues(){
     var value1 = parseInt(firstInput.value);
     var value2 = parseInt(secondInput.value);
     var value3 = parseInt(thirdInput.value);
+    
+    if(isNaN(value1) || value1 == ''){
+        alert('Введите первое число');
+        firstInput.value = '';
+        firstInput.focus();
+    } else if(isNaN(value2) || value2 == ''){
+        alert('Введите второе число');
+        secondInput.value = '';
+        secondInput.focus();
+    } else if(isNaN(value3) || value3 == ''){
+        alert('Введите третье число');
+        thirdInput.value = '';
+        thirdInput.focus();
+    }
 
     var result = parseInt(value1 + value2 + value3)
     resultInput.value = result;
 
-    if(resultInput.value === 'NaN'){
-        alert('Вы должны ввести все числа');
-        resultInput.value = ''
-    }
 }
 
 var sumBox = document.sumOfDigits.number;
@@ -26,11 +36,10 @@ var sumSpan = document.querySelector('.sumSpan')
 
 function onblure(e) {
     var sumBoxArray = sumBox.value.split('');
-    sumBoxArray = sumBoxArray.map(Number);
 
     var sum = 0;
     for(var i = 0; i < sumBoxArray.length; i++){
-        sum += sumBoxArray[i];
+        sum += +sumBoxArray[i];
     }
     sumSpan.innerHTML = ` ${sum}`;
 
