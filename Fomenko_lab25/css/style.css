@@ -1,0 +1,58 @@
+/* Убираем внешние отступы */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Выставляем основные настройки по-умолчанию для body */
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* Упрощаем работу с изображениями */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Наследуем шрифты для инпутов и кнопок */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+h2 {
+    text-align: center;
+}
+img{
+    padding: 10px 0px 10px 0px;
+}
+.active_block{
+    border: 2px solid red;
+    display: block;
+    margin: 0 auto;
+    max-width: 60%;
+    padding: 20px 40px;
+    border-radius: 15px;
+}
+section{
+    display: none;
+    font-family: 'Courgette', cursive;
+}
