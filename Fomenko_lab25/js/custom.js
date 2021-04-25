@@ -1,23 +1,22 @@
 let buttonNext = document.querySelectorAll('.next'),
     buttonPrev = document.querySelectorAll('.prev'),
-    blocks = Array.from(document.querySelectorAll('section')),
-    pointer = 0;
+    sections = Array.from(document.querySelectorAll('section')),
+    pointer = 0,
+    heightRange = document.querySelector('#height'),
+    heightValueSpan = document.querySelector('#heightValue'),
+    activityImg = document.querySelector('#activityImg'),
+    activityRange = document.querySelector('#activityRange'),
+    expectedResultRange = document.querySelector('#expectedResult'),
+    expectedResultImg = document.querySelector('#expectedResultImg');
 
-var heightRange = document.querySelector('#height');
-var heightValueSpan = document.querySelector('#heightValue');
-
-var activityImg = document.querySelector('#activityImg');
-var activityRange = document.querySelector('#activityRange')
-
-var expectedResult = document.querySelector('#expectedResult');
-var expectedResultImg = document.querySelector('#expectedResultImg');
 
 //активность
 activityRange.addEventListener('input', changeHumanActivity)
-function changeHumanActivity() {
-    var rangeValueValue = activityRange.value;
 
-    switch(rangeValueValue){
+function changeHumanActivity() {
+    var activityValue = activityRange.value;
+
+    switch(activityValue){
         case '1':
             activityImg.src = './pictures/sleeping.png';
             break;
@@ -30,16 +29,19 @@ function changeHumanActivity() {
         case '4':
             activityImg.src = './pictures/coperaiting.png';
             break;
+        default:
+            activityImg.src = './pictures/sitting.png';
+            break;
     }
 }
 
 //желаемый результат
-expectedResult.addEventListener('input', expectedHumanResult)
+expectedResultRange.addEventListener('input', expectedHumanResult)
 
 function expectedHumanResult(){
-    var expectedResultValue = expectedResult.value;
+    var expectedResult = expectedResultRange.value;
 
-    switch(expectedResultValue){
+    switch(expectedResult){
         case '1':
             expectedResultImg.src = './pictures/fat.png'
             break;
@@ -49,46 +51,49 @@ function expectedHumanResult(){
         case '3':
             expectedResultImg.src = './pictures/athlet.png'
             break;
+        default:
+            expectedResultImg.src = './pictures/skinny.png'
+            break;
     }
 }
 
 //рост
 heightRange.addEventListener('input', changeHumanHeight)
+
 function changeHumanHeight(){
     heightValueSpan.textContent = `${height.value} см.`;
 }
 
+//переключение для кнопки Next
 function goNextElement(){
     for(var i = 0; i < buttonNext.length; i++){
         buttonNext[i].addEventListener('click', function(){
             // Убираем прошлый блок
-            blocks[pointer].classList.remove('active_block');
+            sections[pointer].classList.remove('active_block');
             
-            if(pointer + 1 >= blocks.length)
+            if(pointer + 1 >= sections.length)
               pointer = 0;
-            else
-              pointer++;
+            else pointer++;
             
             // Отмечаем новый блок
-            blocks[pointer].classList.add('active_block');
+            sections[pointer].classList.add('active_block');
         });
     }
 }
 goNextElement();
 
+//переключение для кнопки Prev
 function goPrevElement(){
     for(var j = 0; j < buttonPrev.length; j++){
         buttonPrev[j].addEventListener('click', function(){
             // Убираем прошлый блок
-            blocks[pointer].classList.remove('active_block');
-            
-            if(pointer - 1 >= blocks.length)
+            sections[pointer].classList.remove('active_block');
+            if(pointer - 1 >= sections.length)
               pointer = 0;
-            else
-              pointer--;
+            else pointer--;
             
             // Отмечаем новый блок
-            blocks[pointer].classList.add('active_block');
+            sections[pointer].classList.add('active_block');
         });
     }
 }
