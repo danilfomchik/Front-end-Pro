@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
 </head>
 <body>
     <h2>Расчёт калорий</h2>
@@ -14,17 +16,16 @@
         <h3>Выберите ваш пол:</h3>
         <label><input type="radio" name="gender">Male</label>
         <label><input type="radio" name="gender">Female</label>
-    
-    
         <hr>
+
         <h3>Введите ваш рост:</h3>
-        <label><input type="range" id="height" min="110" max="220"><span id="heightValue">1 см.</span></label>
-    
+        <label><input type="range" id="height" min="110" max="220"><span id="heightValue">160 см.</span></label>
         <hr>
+
         <h3>Введите ваш текущий вес:</h3>
         <label><input type="text"></label>
-    
         <hr>
+
         <h3>Введите ваш желаемый вес:</h3>
         <label><input type="text"></label>
     
@@ -32,31 +33,35 @@
             <button data-page='2' class="next">Next</button>
         </div>
     </section>
-    
     <section class="block_2">
         <h3>Выберите вашу активность:</h3>
-        <input type="range" id="activityRange" min="1" max="4"><img src="./pictures/sitting.png" id='activityImg' height="150" alt="">
+        <label>
+            <input type="range" id="activityRange" min="1" max="4">
+            <p class="activityP">Из-за моей работы у меня большую часть времени сидячий образ жизни.
+                Не могу себя заставить пойти на зарядку.</p>
+            <img src="./pictures/sitting.png" id='activityImg' height="150" alt="">
+        </label>
     
         <div>
             <button data-page='1' class="prev">Prev</button>
             <button data-page='3' class="next">Next</button>
         </div>
-    
     </section>
-    
     <section class="block_3">
         <h3>Выберите желаемый результат:</h3>
-        <label><input type="range" id="expectedResult" min="1" max="3"><img src="./pictures/skinny.png" id="expectedResultImg" height="150" alt=""></label>
+        <label>
+            <input type="range" id="expectedResult" min="1" max="3">
+            <p class="resultP">Поддержание текущего веса</p>
+            <img src="./pictures/skinny.png" id="expectedResultImg" height="150" alt="">
+        </label>
     
         <div>
             <button data-page='2' class="prev">Prev</button>
             <button data-page='4' class="next">Next</button>
         </div>
-    
     </section>
-    
     <section class="block_4 results">
-        <h3>Вам необходимо принимать не больше <span></span> кКал в день.</h3>
+        <h3>Вам необходимо принимать не больше<span></span> кКал в день.</h3>
     
         <div>
             <button data-page='3' class="prev">Prev</button>
