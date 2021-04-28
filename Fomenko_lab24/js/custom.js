@@ -4,10 +4,14 @@ var userinfo = document.querySelector('.userinfo');
 async function getUserInfo(url){
     let fetchData = fetch(url)
         .then((response) => {
-            return response.json()
+            if (response.status !== 200) {
+                alert('Whoops! Something went wrong!')
+              }
+              return Promise.resolve(response)
+          
         })
-        .catch((err) => {
-            alert('Whoops!!! Something went wrong!')
+        .then((response) => {
+            return response.json()
         })
 
     let result = await fetchData;
