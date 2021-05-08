@@ -1,4 +1,3 @@
-const cart = document.querySelector('.cart');
 const cartNumbItem = document.querySelectorAll('input');
 
 
