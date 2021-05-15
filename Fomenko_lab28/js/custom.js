@@ -2,13 +2,12 @@ const cartNumbItem = document.querySelectorAll('input');
 let valuesArray = [];
 
 
-(function fillingCardNumber(){
-    for(var iterator of cartNumbItem){
-        iterator.addEventListener('input', goNextInput);
-        iterator.addEventListener('keydown', goPreviousInput);
-        iterator.addEventListener('keypress', blockLetters);
-    }
-})();
+
+for(var iterator of cartNumbItem){
+    iterator.addEventListener('input', goNextInput);
+    iterator.addEventListener('keydown', goPreviousInput);
+    iterator.addEventListener('keypress', blockLetters);
+}
 
 //next input
 function goNextInput(){
@@ -17,7 +16,7 @@ function goNextInput(){
         valuesArray.push(this.value);
         var stringifyValues = valuesArray.join('');
 
-        document.cookie = `name=${stringifyValues}`;
+        document.cookie = `card=${stringifyValues}`;
         console.log('stringifyValues-->', stringifyValues);
     }
 }
@@ -29,7 +28,7 @@ function goPreviousInput(event){
         valuesArray.pop();
         var stringifyValues = valuesArray.join('');
 
-        document.cookie = `name=${stringifyValues}`;
+        document.cookie = `card=${stringifyValues}`;
         console.log('stringifyValues-->', stringifyValues);
     }
 }
@@ -49,10 +48,10 @@ var getCookie = function(name) {
 	return matches ? decodeURIComponent(matches[1]) : undefined;
 }
 
-var cookieData = getCookie('name');
+var cookieData = getCookie('card');
 
 
-(function cookieFill(){
+function cookieFill(){
     var cookieDataArray = cookieData.split('');
 
     if(cookieData.length >= 12){
@@ -60,12 +59,14 @@ var cookieData = getCookie('name');
             cartNumbItem[i].value = cookieDataArray[i]
         }
     }
-})();
+}
+cookieFill();
 
-(function isCookie(){
+function isCookie(){
     if (navigator.cookieEnabled === false){
         console.log("No cookies!");
     } else{
         console.log("Cookies is ready!");
     }    
-})();
+}
+isCookie();
