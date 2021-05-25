@@ -3,12 +3,8 @@ var userinfo = document.querySelector('.userinfo');
 
 async function getUserInfo(url){
     let fetchData = fetch(url)
-        .then((response) => {
-            if (response.status !== 200) {
-                alert('Whoops! Something went wrong!')
-              }
-              return Promise.resolve(response)
-          
+        .catch(() => {
+            alert('Whoops! Something went wrong!')
         })
         .then((response) => {
             return response.json()
